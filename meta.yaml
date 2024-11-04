@@ -1,0 +1,41 @@
+# This file created by conda-build 2.1.18
+# meta.yaml template originally from:
+# /Users/distiller/project/recipes/blat, last modified Thu May 10 15:13:59 2018
+# ------------------------------------------------
+
+package:
+  name: blat
+  version: '36'
+
+source:
+  fn: blat-36.zip
+  url: https://github.com/jonathan-bravo/blat/archive/refs/tags/v36.zip
+  sha256: 6e0697f01107f0b1fd0482d0b87192850534fe2a280d30bf2b3e8a61279230e2
+
+build:
+  number: 0
+  skip: false
+
+requirements:
+  build:
+    - libpng
+    - zlib
+  run:
+    - libpng
+    - zlib
+
+test:
+  commands:
+    - blat | grep -q "^blat - Standalone BLAT"
+
+about:
+  home: https://genome.ucsc.edu/FAQ/FAQblat.html
+  license: Free for academic, nonprofit and personal use
+  license_family: OTHER
+  summary: BLAT is a bioinformatics software tool which performs rapid mRNA/DNA and cross-species protein alignments.
+
+extra:
+  recipe-maintainers:
+    - jonathan.bravo
+  identifiers:
+    - biotools:blat
